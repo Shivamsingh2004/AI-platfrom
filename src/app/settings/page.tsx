@@ -86,7 +86,7 @@ export default function SettingsPage() {
               <h2 className="text-base font-semibold text-white">API Key</h2>
             </div>
 
-            <div>
+            <form onSubmit={(e) => { e.preventDefault(); handleSave(); }}>
               <label className="block text-sm font-medium text-gray-300 mb-2">
                 OpenAI API Key
               </label>
@@ -96,6 +96,7 @@ export default function SettingsPage() {
                   value={apiKey}
                   onChange={(e) => setApiKey(e.target.value)}
                   placeholder="sk-..."
+                  autoComplete="off"
                   className="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-2.5 pr-12 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-blue-500"
                 />
                 <button
@@ -106,13 +107,14 @@ export default function SettingsPage() {
                   {showKey ? <EyeOff size={16} /> : <Eye size={16} />}
                 </button>
               </div>
-            </div>
+            </form>
 
             <div className="flex items-start gap-2 p-3 bg-blue-500/5 border border-blue-500/10 rounded-lg">
               <Info size={14} className="text-blue-400 flex-shrink-0 mt-0.5" />
               <p className="text-xs text-gray-400">
-                Your API key is stored only in your browser&apos;s localStorage and is never sent to our servers. 
-                It&apos;s only used to make API calls directly to OpenAI.
+                Your API key is stored only in your browser&apos;s localStorage. It is sent to this
+                application&apos;s server-side API routes, which use it exclusively to forward your
+                requests to OpenAI. It is never logged or stored on the server.
               </p>
             </div>
           </div>

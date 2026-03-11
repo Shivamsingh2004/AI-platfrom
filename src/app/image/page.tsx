@@ -2,12 +2,12 @@
 import { useState } from "react";
 import { Image as ImageIcon, Loader2, AlertCircle, Download, Sparkles } from "lucide-react";
 
-const sizes = ["256x256", "512x512", "1024x1024"];
+const sizes = ["1024x1024", "1024x1792", "1792x1024"];
 const styles = ["vivid", "natural"];
 
 export default function ImagePage() {
   const [prompt, setPrompt] = useState("");
-  const [size, setSize] = useState("512x512");
+  const [size, setSize] = useState("1024x1024");
   const [style, setStyle] = useState("vivid");
   const [isLoading, setIsLoading] = useState(false);
   const [imageUrl, setImageUrl] = useState<string | null>(null);
